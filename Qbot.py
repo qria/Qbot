@@ -155,6 +155,8 @@ def show_rensa_information(rensas):
     jama = score // 70
     return '%d連鎖 %d点 おじゃまぷよ%d個 ' % (len(rensas), score, jama) + jama_representation(jama)
 
+
+print("I'm alive!")
 if local: # local testing
     context = "#Bpuyo"
     while 1:
