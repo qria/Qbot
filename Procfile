@@ -1,0 +1,1 @@
+bot: gunicorn TicketPlace:app --log-file=-
