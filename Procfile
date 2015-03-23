@@ -1,1 +1,1 @@
-bot: gunicorn TicketPlace:app --log-file=-
+worker: python redditbot.py
