@@ -186,6 +186,7 @@ say(master, greeting_message() + '、マスター')
 say(puyo_channel, greeting_message() + '！ Qriaのボットです。')
 
 while 1:
+    sleep(0.1)
     try: #server and channel encoding is different. this hack works it around
         read_buffer = read_buffer+s.recv(1024).decode(jp_encoding)
     except Exception as e:
