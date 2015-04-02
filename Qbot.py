@@ -17,7 +17,7 @@ host, port = "ara.maa.jp", 6665
 
 debug = True  # enables logging and stuff
 local = False  # for local debugging
-test = True
+test = False
 
 default_encoding = "utf-8"
 jp_encoding = "ISO-2022-JP"
