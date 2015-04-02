@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Todo : make a deployer to restart
 
 import socket
@@ -16,16 +17,19 @@ host, port = "ara.maa.jp", 6665
 
 debug = True  # enables logging and stuff
 local = False  # for local debugging
+test = True
 
 default_encoding = "utf-8"
 jp_encoding = "ISO-2022-JP"
 
 nick, user, realname = 'Qbot', 'Qbot', "Bot no Qria"
+if test:
+    nick = 'QbotDev'
 master = "Qria"
 
 puyo_channel = '#BPuyo'
 
-command_character = '!'
+command_character = ''
 
 line_limit = 400
 
@@ -36,7 +40,8 @@ message_delay = 0
 read_buffer = ""
 reload = False
 
-#irc functions
+# irc functions
+
 
 def log(*args, **kwargs):
     # for future logings
@@ -215,7 +220,7 @@ while 1:
             print(sender + ' sent message : "' + ' '.join(irc_parameters[1:]) + '" in channel ' + channel + ' on context '+context)
             if irc_parameters[1].startswith(command_character) \
                     and len(irc_parameters[1]) > len(command_character): # ignores if just one '!'
-                command = irc_parameters[1][1:]
+                command = irc_parameters[1][len(command_character):]
                 if sender == master: # master irc_commands
                     print('command', command)
                     if command == 'die':
