@@ -210,6 +210,10 @@ while 1:
         log(prefix, irc_command, irc_parameters)
         if irc_command == "PING":
             pong(irc_parameters[0])
+        if irc_command == '433':  # nick already in use
+            nick += '_'
+            send('NICK', nick)
+            send('JOIN', puyo_channel)
         if irc_command == "PRIVMSG" and len(irc_parameters) > 1:
             # PRIVMSG irc_parameters = channel_or_Qbot :messages messages ...
             sender = prefix.split('!')[0]
